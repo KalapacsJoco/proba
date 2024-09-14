@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\RedirectIfAdmin;
+use App\Http\Controllers\DishController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,5 +18,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Bejelentkezés után ezt a middleware-t fogjuk használni
+// Admin útvonal
+Route::get('/admin', function () {
+    return view('admin');
+})->middleware('auth');
+
+// Dishes útvonal
+Route::get('/dishes', [DishController::class, 'index'])->middleware('auth');
 
 require __DIR__.'/auth.php';
