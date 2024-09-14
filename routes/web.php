@@ -27,5 +27,6 @@ Route::get('/admin', function () {
 
 // Dishes útvonal
 Route::get('/dishes', [DishController::class, 'index'])->middleware('auth');
+Route::post('/admin', [DishController::class, 'store'])->name('admin.store');
 
 require __DIR__.'/auth.php';

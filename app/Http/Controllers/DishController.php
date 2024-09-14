@@ -22,13 +22,25 @@ class DishController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
+            'name' => 'required',
+            'description' => 'required',
             'price' => 'required|numeric',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        Dish::create($request->all());
+        // Handle the image upload
+        if ($request->file('image')) {
+            $imagePath = $request->file('image')->store('dishes', 'public');
+        }
 
-        return redirect()->route('dishes.index');
+        // Create new dish
+        Dish::create([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'price' => $request->input('price'),
+            'image' => $imagePath, // Store the image path
+        ]);
+
+        return redirect()->back()->with('success', 'Dish added successfully!');
     }
 }
