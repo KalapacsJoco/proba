@@ -34,9 +34,9 @@ class AuthenticatedSessionController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
-            if ($user->isAdmin) {
-                return redirect()->intended('/admin');
-            }
+            // if ($user->isAdmin) {
+            //     return redirect()->intended('/admin');
+            // }
 
             return redirect()->intended('/dishes');
         }

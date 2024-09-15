@@ -15,12 +15,12 @@ class RedirectIfAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
-    {
-        if (Auth::check() && Auth::user()->isAdmin) {
-            return redirect('/admin');  // Ha admin, akkor az admin oldalra irányít
-        }
+    // public function handle(Request $request, Closure $next)
+    // {
+    //     if (Auth::check() && Auth::user()->isAdmin) {
+    //         return redirect('/admin');  // Ha admin, akkor az admin oldalra irányít
+    //     }
 
-        return redirect('/dishes');  // Ha nem admin, akkor a dishes oldalra
-    }
+    //     return redirect('/dishes');  // Ha nem admin, akkor a dishes oldalra
+    // }
 }

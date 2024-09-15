@@ -21,12 +21,12 @@ Route::middleware('auth')->group(function () {
 
 // Bejelentkezés után ezt a middleware-t fogjuk használni
 // Admin útvonal
-Route::get('/admin', function () {
-    return view('admin');
-})->middleware('auth');
+// Route::get('/admin', function () {
+//     return view('dishes.admin');
+// })->middleware('auth');
 
 // Dishes útvonal
 Route::get('/dishes', [DishController::class, 'index'])->middleware('auth');
-Route::post('/admin', [DishController::class, 'store'])->name('admin.store');
+//Route::post('/admin', [DishController::class, 'store'])->name('admin.store');
 
 require __DIR__.'/auth.php';
