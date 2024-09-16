@@ -1,4 +1,17 @@
 <x-layout>
+<style>
+    .horizontal {
+        margin-left: calc(100vw * 0.2);
+        /* 20%-os margó a bal oldalon */
+        margin-right: calc(100vw * 0.2);
+        /* 20%-os margó a jobb oldalon */
+    }
+
+    .vertical {
+        height: calc(100vh / 1.5);
+        /* 1.5 elem férjen el egy képernyőn */
+    }
+</style>
     <section class="dishes flex flex-col items-center space-y-4 horizontal vertical">
         @if($dishes->isNotEmpty())
             @foreach ($dishes as $index => $dish)

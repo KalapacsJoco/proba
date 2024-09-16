@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/dishes', [DishController::class, 'index'])->middleware('auth');
-Route::view('/admin', 'dishes.admin');
+Route::view('/admin', 'dishes.admin')->name('admin');
 Route::post('/admin', [DishController::class, 'store'])->name('admin.store');
 
 require __DIR__.'/auth.php';
