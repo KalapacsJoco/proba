@@ -14,11 +14,8 @@
         <div class="flex items-center space-x-4">
             @auth
             <span>Üdv újra {{ auth()->user()->lastName }}</span>
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                @method('POST')
-                <input type="submit" class="mt-12 text-grey-100 bg-transparent border border-gray-100 rounded-lg shadow-md hover:bg-gray-700  px-6 py-3" value="Kijelentkezés">
-            </form>
+
+
             @if(auth()->user()->isAdmin)
 
             @php
@@ -27,7 +24,20 @@
             $buttonText = $isOnDishesPage ? 'Új eledel felvétele' : 'Vissza';
             $buttonRoute = $isOnDishesPage ? route('createDish') : route('dishes');
             @endphp
-            <a href="{{ ($buttonRoute) }}" id="addDishButton" class="mt-12 text-grey-100 bg-transparent border border-gray-100 rounded-lg shadow-md hover:bg-gray-700 px-6 py-3">{{$buttonText}}</a>
+            <form action="{{ $buttonRoute }}" method="GET">
+                <x-primary-button type="submit">
+                    {{ $buttonText }}
+                </x-primary-button>
+            </form>
+
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                @method('POST')
+                <x-primary-button type="submit">
+                    Kijelentkezés
+                </x-primary-button>
+            </form>
+
 
 
             @endif
