@@ -17,10 +17,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::get('/dishes', [DishController::class, 'index'])->middleware('auth')->name('dishes');
-Route::get('/dishes/{dish}/edit', [DishController::class, 'edit'])->middleware('auth')->name('dishes.edit');
 Route::view('/createDish', 'dishes.createDish')->name('createDish');
 Route::post('/createDish', [DishController::class, 'store'])->name('createDish.store');
+Route::get('/dishes', [DishController::class, 'index'])->middleware('auth')->name('dishes');
+Route::get('/dishes/{dish}/edit', [DishController::class, 'edit'])->middleware('auth')->name('dishes.edit');
+Route::patch('/dishes/{dish}/update', [DishController::class, 'update'])->name('dishes.update');
 
 require __DIR__ . '/auth.php';

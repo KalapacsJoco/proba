@@ -32,7 +32,7 @@
                         @elseif(Auth::check() && Auth::user()->isAdmin)
                             <form action="" method="GET">
                                 @csrf
-                                <a href="{{route('dishes.edit', ['dish => $dish'])}}" class="text-green-100 bg-transparent border border-green-100 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 px-6 py-3">
+                                <a href="{{route('dishes.edit', ['dish' => $dish])}}" class="text-green-100 bg-transparent border border-green-100 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 px-6 py-3">
                                     Módosítás
                                 </a>
                             </form>
