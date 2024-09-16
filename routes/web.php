@@ -18,8 +18,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/dishes', [DishController::class, 'index'])->middleware('auth');
-Route::view('/admin', 'dishes.admin')->name('admin');
-Route::post('/admin', [DishController::class, 'store'])->name('admin.store');
+Route::get('/dishes', [DishController::class, 'index'])->middleware('auth')->name('dishes');
+Route::get('/dishes/{dish}/edit', [DishController::class, 'edit'])->middleware('auth')->name('dishes.edit');
+Route::view('/createDish', 'dishes.createDish')->name('createDish');
+Route::post('/createDish', [DishController::class, 'store'])->name('createDish.store');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

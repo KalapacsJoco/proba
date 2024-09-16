@@ -43,4 +43,8 @@ class DishController extends Controller
 
         return redirect()->back()->with('success', 'Dish added successfully!');
     }
+
+    public function edit(Dish $dish) {
+        
+    }
 }

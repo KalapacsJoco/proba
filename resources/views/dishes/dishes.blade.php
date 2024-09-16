@@ -12,10 +12,10 @@
         /* 1.5 elem férjen el egy képernyőn */
     }
 </style>
-    <section class="dishes flex flex-col items-center space-y-4 horizontal vertical">
+    <section class="dishes flex flex-col items-center space-y-4 horizontal vertical  overflow-auto">
         @if($dishes->isNotEmpty())
             @foreach ($dishes as $index => $dish)
-                <div class="border border-gray-100 text-gray-100  rounded-lg shadow w-auto mx-auto flex">
+                <div class="border border-gray-100 text-gray-100   rounded-lg shadow w-auto mx-auto flex">
                     <div class="w-1/2 h-full">
                         <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}">
                     </div>
@@ -32,9 +32,9 @@
                         @elseif(Auth::check() && Auth::user()->isAdmin)
                             <form action="" method="GET">
                                 @csrf
-                                <button type="submit" class="text-green-100 bg-transparent border border-green-100 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 px-6 py-3">
+                                <a href="{{route('dishes.edit', ['dish => $dish'])}}" class="text-green-100 bg-transparent border border-green-100 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 px-6 py-3">
                                     Módosítás
-                                </button>
+                                </a>
                             </form>
 
                             <form action="" method="POST">
@@ -62,4 +62,5 @@
             <p>Nincsenek elérhető ételek.</p>
         @endif
     </section>
+    
 </x-layout>

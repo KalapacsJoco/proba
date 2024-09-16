@@ -1,4 +1,4 @@
-<x-layout title="Admin page">
+<x-layout title="Create dish">
 
 
 
@@ -18,7 +18,7 @@
     @endif
 </div>
 
-<form id="foodForm" action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data" class=" w-full max-w-md mx-auto p-6 text-gray-100 pl-4 border border-gray-100 rounded-lg">
+<form id="foodForm" action="{{ route('createDish.store') }}" method="POST" enctype="multipart/form-data" class=" w-full max-w-md mx-auto p-6 text-gray-100 pl-4 border border-gray-100 rounded-lg">
 @csrf
 
     <div class="mb-4">

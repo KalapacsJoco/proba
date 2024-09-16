@@ -20,7 +20,14 @@
                 <input type="submit" class="mt-12 text-grey-100 bg-transparent border border-gray-100 rounded-lg shadow-md hover:bg-gray-700  px-6 py-3" value="Kijelentkezés">
             </form>
             @if(auth()->user()->isAdmin)
-            <a href="{{ route('admin') }}" class="mt-12 text-grey-100 bg-transparent border border-gray-100 rounded-lg shadow-md hover:bg-gray-700 px-6 py-3">Új eledel felvétele</a>
+
+            @php
+            // Ellenőrzi az aktuális URL-t
+            $isOnDishesPage = request()->is('dishes');
+            $buttonText = $isOnDishesPage ? 'Új eledel felvétele' : 'Vissza';
+            $buttonRoute = $isOnDishesPage ? route('createDish') : route('dishes');
+            @endphp
+            <a href="{{ ($buttonRoute) }}" id="addDishButton" class="mt-12 text-grey-100 bg-transparent border border-gray-100 rounded-lg shadow-md hover:bg-gray-700 px-6 py-3">{{$buttonText}}</a>
 
 
             @endif
@@ -42,6 +49,20 @@
     <footer>
         <p>&copy; 2024 My Website</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addDishButton = document.querySelector('#addDishButton');
+
+            // Ha az aktuális oldal az admin nézet
+            if (window.location.pathname === '/admin/add-dish') {
+                addDishButton.value = 'Vissza'; // Módosítja a gomb szövegét
+                addDishButton.onclick = function() {
+                    window.location.href = '/dishes'; // Átnavigál a /dishes oldalra
+                };
+            }
+        });
+    </script>
 
 </body>
 
