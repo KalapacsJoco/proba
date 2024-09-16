@@ -1,5 +1,9 @@
 <x-layout title="Admin page">
 
+
+
+
+
 <div>
     @if($errors->any())
 
