@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DishController;
+use App\Http\Controllers\CartController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,5 +24,9 @@ Route::get('/dishes', [DishController::class, 'index'])->middleware('auth')->nam
 Route::get('/dishes/{dish}/edit', [DishController::class, 'edit'])->middleware('auth')->name('dishes.edit');
 Route::patch('/dishes/{dish}/update', [DishController::class, 'update'])->name('dishes.update');
 Route::delete('/dishes/{dish}/destroy', [DishController::class, 'destroy'])->name('dishes.destroy');
+
+// Cart routes
+
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 
 require __DIR__ . '/auth.php';

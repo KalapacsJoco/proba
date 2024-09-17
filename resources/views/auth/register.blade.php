@@ -4,26 +4,26 @@
 
         <!-- firstName -->
         <div>
-            <x-text-input id="firstName" class="block mt-1 w-full" type="text" name="firstName" :value="old('firstName')" required autofocus autocomplete="firstName" placeholder="Vezetéknév:" />
+            <x-text-input id="firstName" type="text" name="firstName" :value="old('firstName')" required autofocus autocomplete="firstName" placeholder="Vezetéknév:" />
             <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
         </div>
 
         <!-- lastName -->
         <div>
-            <x-text-input id="lastName" class="block mt-1 w-full" type="text" name="lastName" :value="old('lastName')" required autofocus autocomplete="lastName" placeholder="Keresztnév:" />
+            <x-text-input id="lastName" type="text" name="lastName" :value="old('lastName')" required autofocus autocomplete="lastName" placeholder="Keresztnév:" />
             <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div >
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username"  placeholder="Add meg az email címed:" />
+            <x-text-input id="email" type="email" name="email" :value="old('email')" required autocomplete="username"  placeholder="Add meg az email címed:" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div >
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password"
                 type="password"
                 name="password"
                 required autocomplete="new-password"
@@ -35,7 +35,7 @@
         <!-- Confirm Password -->
         <div >
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+            <x-text-input id="password_confirmation"
                 type="password"
                 name="password_confirmation" required autocomplete="new-password"
                 placeholder="Jelszó újra:" />
@@ -45,19 +45,19 @@
 
         <!-- phone -->
         <div>
-            <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" placeholder="Telefonszám:"/>
+            <x-text-input id="phone" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" placeholder="Telefonszám:"/>
             <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
 
         <!-- street -->
         <div>
-            <x-text-input id="street" class="block mt-1 w-full" type="text" name="street" :value="old('street')" required autofocus autocomplete="street"  placeholder="Utca:" />
+            <x-text-input id="street" type="text" name="street" :value="old('street')" required autofocus autocomplete="street"  placeholder="Utca:" />
             <x-input-error :messages="$errors->get('street')" class="mt-2" />
         </div>
 
         <!-- houseNumber -->
         <div>
-            <x-text-input id="houseNumber" class="block mt-1 w-full" type="text" name="houseNumber" :value="old('houseNumber')" required autofocus autocomplete="houseNumber"  placeholder="Házszám:" />
+            <x-text-input id="houseNumber" type="text" name="houseNumber" :value="old('houseNumber')" required autofocus autocomplete="houseNumber"  placeholder="Házszám:" />
             <x-input-error :messages="$errors->get('houseNumber')" class="mt-2" />
         </div>
 
