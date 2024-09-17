@@ -23,9 +23,9 @@
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 @method('POST')
-                <x-primary-button type="submit">
+                <x-danger-button type="submit">
                     Kijelentkezés
-                </x-primary-button>
+                </x-danger-button>
             </form>
         </div>
 

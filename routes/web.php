@@ -22,5 +22,6 @@ Route::post('/createDish', [DishController::class, 'store'])->name('createDish.s
 Route::get('/dishes', [DishController::class, 'index'])->middleware('auth')->name('dishes');
 Route::get('/dishes/{dish}/edit', [DishController::class, 'edit'])->middleware('auth')->name('dishes.edit');
 Route::patch('/dishes/{dish}/update', [DishController::class, 'update'])->name('dishes.update');
+Route::delete('/dishes/{dish}/destroy', [DishController::class, 'destroy'])->name('dishes.destroy');
 
 require __DIR__ . '/auth.php';

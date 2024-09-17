@@ -39,10 +39,10 @@
 
                     </form>
 
-                    <form action="" method="POST">
+                    <form action="{{route('dishes.destroy', ['dish' => $dish])}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <x-danger-button type="submit" class="mt-3" >
+                        <x-danger-button type="submit"  >
                             Törlés
                         </x-danger-button>
                     </form>

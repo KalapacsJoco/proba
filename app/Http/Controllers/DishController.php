@@ -44,21 +44,28 @@ class DishController extends Controller
         return redirect()->back()->with('success', 'Dish added successfully!');
     }
 
-    public function edit(Dish $dish) {
-        return view ('dishes.edit', ['dish' => $dish]);
+    public function edit(Dish $dish)
+    {
+        return view('dishes.edit', ['dish' => $dish]);
     }
 
-    public function update(Dish $dish, Request $request){
+    public function update(Dish $dish, Request $request)
+    {
         $data = $request->validate([
             'name' => 'required',
             'description' => 'required',
             'price' => 'required|numeric',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            ]);
+        ]);
 
         $dish->update($data);
 
         return redirect(route('dishes'))->with('Success', 'Az eledel sikeresen módosítva');
+    }
 
+    public function destroy(Dish $dish)
+    {
+        $dish->delete();
+        return redirect(route('dishes'))->with('Success', 'Az eledel sikeresen törölve');
     }
 }
