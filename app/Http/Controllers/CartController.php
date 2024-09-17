@@ -9,6 +9,7 @@ class CartController extends Controller
 {
     public function addToCart(Request $request)
     {
+
         // Az azonosító, amit a kérésből kapunk
         $dishId = $request->input('dish_id');
         

@@ -18,6 +18,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Dish routes
+
 Route::view('/createDish', 'dishes.createDish')->name('createDish');
 Route::post('/createDish', [DishController::class, 'store'])->name('createDish.store');
 Route::get('/dishes', [DishController::class, 'index'])->middleware('auth')->name('dishes');
@@ -26,7 +29,7 @@ Route::patch('/dishes/{dish}/update', [DishController::class, 'update'])->name('
 Route::delete('/dishes/{dish}/destroy', [DishController::class, 'destroy'])->name('dishes.destroy');
 
 // Cart routes
-
+Route::view('/cart', 'cart.cart')->name('cart');
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 
 require __DIR__ . '/auth.php';
