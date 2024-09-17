@@ -12,7 +12,7 @@
 
     @include('components.nav') <!-- Itt hívod be a nav.blade.php-t -->
 
-    <main class="flex-grow flex items-center">
+    <main class="flex-grow flex items-center justify-center">
         {{$slot}}
     </main>
 

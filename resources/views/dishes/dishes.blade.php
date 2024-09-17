@@ -12,6 +12,15 @@
             /* 1.5 elem férjen el egy képernyőn */
         }
     </style>
+    <div>
+        @if(session()->has('success'))
+
+        <div>
+            {{session('success')}}
+        </div>
+
+        @endif
+    </div>
     <section class="dishes flex flex-col items-center space-y-4 horizontal vertical  overflow-auto">
         @if($dishes->isNotEmpty())
         @foreach ($dishes as $index => $dish)

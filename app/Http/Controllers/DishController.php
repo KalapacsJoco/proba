@@ -41,7 +41,7 @@ class DishController extends Controller
             'image' => $imagePath, // Store the image path
         ]);
 
-        return redirect()->back()->with('success', 'Dish added successfully!');
+        return redirect(route('dishes'))->with('success', 'Dish added successfully!');
     }
 
     public function edit(Dish $dish)
